@@ -1,7 +1,10 @@
 import React from 'react';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
+const App = () => (
+  <Provider store={store}>
+    return (
     <div className='App'>
       <header>
         <h1>Moja Strona</h1>
@@ -13,7 +16,7 @@ function App() {
         <p>Stopka strony</p>
       </footer>
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;
