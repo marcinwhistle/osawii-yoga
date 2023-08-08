@@ -1,23 +1,8 @@
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-}
-export interface Order {
-  id: string;
-  productId: string;
-  client: string;
-  address: string;
-}
+import { PrismaClient } from '@prisma/client';
+const db = new PrismaClient();
 
-type DBData = {
-  products: Product[];
-  orders: Order[];
-};
-
-export const db: DBData = {
-  products: [
+function getProducts() {
+  return [
     {
       id: 'c5ec02c0-60c0-4a67-9614-6e64e8f7d343',
       name: 'Canon 50d',
@@ -36,8 +21,11 @@ export const db: DBData = {
       price: 8000,
       description: 'Small camera with big features',
     },
-  ],
-  orders: [
+  ];
+}
+
+function getOrders() {
+  return [
     {
       id: 'b8447e79-8a43-44d0-8f9a-623cc5355bd5',
       productId: 'c5ec02c0-60c0-4a67-9614-6e64e8f7d343',
@@ -56,5 +44,27 @@ export const db: DBData = {
       client: 'Al Swearengen',
       address: '12 Main St, Deadwood, DA 12002',
     },
-  ],
-};
+  ];
+}
+
+async function seed() {
+  await Promise.all(
+    getProducts().map((product) => {
+      return db.product.create({ data: product });
+    }),
+  );
+  await Promise.all(
+    getOrders().map(({ productId, ...orderData }) => {
+      return db.order.create({
+        data: {
+          ...orderData,
+          product: {
+            connect: { id: productId },
+          },
+        },
+      });
+    }),
+  );
+}
+
+seed();
