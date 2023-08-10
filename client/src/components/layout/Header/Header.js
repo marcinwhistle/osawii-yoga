@@ -1,7 +1,8 @@
 import React from 'react';
+import CustomNavBar from '../NavBar/NavBar';
 
 const Header = () => {
-  return <div>Header</div>;
+  return <CustomNavBar />;
 };
 
 export default Header;
