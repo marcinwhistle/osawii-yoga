@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 const CustomNavBar = () => {
   return (
     <NavBar
-      bg="primary"
-      variant="dark"
+      bg="light"
+      variant="light"
       expand="lg"
       className="mt-4 mb-4 rounded"
     >
