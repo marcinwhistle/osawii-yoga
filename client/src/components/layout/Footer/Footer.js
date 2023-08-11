@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Container>
       <Row className=" text-muted justify-content-center">
-        <Col className="mb-4" md="auto">
+        <Col className="mb-4 mt-4" md="auto">
           Osawii Yoga © 2023
         </Col>
       </Row>
