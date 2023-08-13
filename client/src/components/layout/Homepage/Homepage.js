@@ -5,8 +5,9 @@ import Container from 'react-bootstrap/esm/Container';
 const Homepage = () => {
   return (
     <>
+      <div className={styles.backgroundImage}></div>
       <Container>
-        <div className={styles.backgroundImage}></div>
+        <h1>Odzyskaj swoją wewnętrzną równowagę:</h1>
         <ProductList />
       </Container>
     </>

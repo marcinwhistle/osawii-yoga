@@ -12,10 +12,13 @@ const CustomNavBar = () => {
       className="mt-4 mb-4 rounded"
     >
       <Container>
-        <NavBar.Brand href="/">Osawii YOGA</NavBar.Brand>
+        <NavBar.Brand href="/">Osawii Yoga</NavBar.Brand>
         <Nav>
-          <Nav.Link as={NavLink} to="/">
+          <Nav.Link as={NavLink} to="/" className="text-dark">
             Home
+          </Nav.Link>
+          <Nav.Link as={NavLink} to="/cart" className="text-dark">
+            Cart
           </Nav.Link>
         </Nav>
       </Container>
