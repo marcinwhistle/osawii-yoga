@@ -14,7 +14,7 @@ export const updateProducts = (payload) => ({ type: UPDATE_PRODUCTS, payload });
 
 export const fetchProducts = () => {
   return (dispatch) => {
-    fetch(API_URL + 'products')
+    fetch('http://localhost:8000/api/products')
       .then((res) => res.json())
       .then((products) => dispatch(updateProducts(products)));
   };
