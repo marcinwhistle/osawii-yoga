@@ -5,21 +5,31 @@ function getProducts() {
   return [
     {
       id: 'c5ec02c0-60c0-4a67-9614-6e64e8f7d343',
-      name: 'Canon 50d',
-      price: 1500,
-      description: 'Classic camera for aspiring photographers',
+      name: 'Kurs Jogi dla Początkujących',
+      price: 99,
+      description:
+        'Zacznij swoją przygodę z jogą od podstaw. Poznaj techniki oddechu, asany i medytację.',
     },
     {
       id: '4b2db7a8-00e7-4099-959d-30d846c9de08',
-      name: 'Sony A7',
-      price: 9000,
-      description: 'Professional camera for professional photographers',
+      name: 'Intensywny Kurs Power Jogi',
+      price: 129,
+      description:
+        'Wypróbuj wyzwanie dla swojego ciała i umysłu. Zwiększ siłę, gibkość i kondycję w intensywnych sesjach.',
     },
     {
       id: '105224b7-9f2f-4a22-9e5f-fd4cd831af9e',
-      name: 'Nikon D750',
-      price: 8000,
-      description: 'Small camera with big features',
+      name: 'Kurs Jogi Restauracyjnej',
+      price: 79,
+      description:
+        'Zrelaksuj się i zregeneruj w spokojnych i terapeutycznych praktykach jogi, które pomogą w redukcji stresu.',
+    },
+    {
+      id: '105224b7-9f2f-4a22-9e5f-fd4cd831ag6y',
+      name: 'Kurs Jogi dla Zaawansowanych Asan',
+      price: 149,
+      description:
+        'Dla doświadczonych praktyków, którzy chcą zgłębić swoje umiejętności w trudniejszych asanach i technikach.',
     },
   ];
 }
