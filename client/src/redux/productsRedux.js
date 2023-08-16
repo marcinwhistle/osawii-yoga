@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 //selectors
-export const getProducts = ({ products }) => products.data;
+export const getProducts = ({ products }) => products;
 export const getRequest = ({ products }) => products.request;
 // actions
 
@@ -30,9 +30,10 @@ export const loadProductsRequest = () => {
     try {
       let res = await axios.get(`${API_URL}/products`);
       dispatch(loadProducts(res.data));
+      console.log('Fetched products:', res.data);
       dispatch(endRequest());
-    } catch (e) {
-      dispatch(errorRequest(e.message));
+    } catch (error) {
+      dispatch(errorRequest(error.message));
     }
   };
 };
@@ -70,6 +71,7 @@ export default function reducer(statePart = initialState, action = {}) {
         request: { pending: false, error: action.error, success: false },
       };
     default:
+      console.log(statePart);
       return statePart;
   }
 }

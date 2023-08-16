@@ -1,3 +1,4 @@
+import React from 'react';
 import Product from '../../views/Product/Product/Product';
 
 const Products = ({ products }) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   getProducts,
@@ -9,6 +10,7 @@ import Products from '../../features/Products/Products';
 
 const ProductList = () => {
   const dispatch = useDispatch();
+
   const products = useSelector(getProducts);
   const request = useSelector(getRequest);
 
@@ -16,7 +18,10 @@ const ProductList = () => {
     dispatch(loadProductsRequest());
   }, [dispatch]);
 
-  if (request.pending) return <div>Loadind...</div>;
+  console.log('Products:', products);
+  console.log('Request:', request);
+
+  if (request.pending) return <div>Loading...</div>;
   else if (request.error) return <div>Error {request.error}</div>;
   else if (!request.success || !products.length) return <div>No products</div>;
   else if (request.success) return <Products products={products} />;

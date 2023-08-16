@@ -1,6 +1,7 @@
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-const Product = ({ name, price, description }) => {
+const Product = ({ name, price, description }) => (
   <article>
     <Row>
       <Col>
@@ -9,7 +10,7 @@ const Product = ({ name, price, description }) => {
         <h1>{description}</h1>
       </Col>
     </Row>
-  </article>;
-};
+  </article>
+);
 
 export default Product;
