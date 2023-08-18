@@ -14,7 +14,6 @@ const ProductList = () => {
 
   return (
     <>
-      <h1>Produkty</h1>
       <Products products={products} />;
     </>
   );
