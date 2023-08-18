@@ -2,6 +2,9 @@ import { API_URL } from '../config';
 
 //selectors
 export const getAllProducts = ({ products }) => products;
+export const getProductById = ({ products }, id) => {
+  return products.find((product) => product.id === id);
+};
 
 // action name creator
 const reducerName = 'products';
