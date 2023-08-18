@@ -1,30 +1,31 @@
-import Container from 'react-bootstrap/Container';
-import NavBar from 'react-bootstrap/NavBar';
-import Nav from 'react-bootstrap/Nav';
+import { Navbar } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const CustomNavBar = () => {
   return (
-    <NavBar
-      bg="light"
-      variant="light"
-      expand="lg"
-      className="mt-4 mb-4 rounded"
-    >
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
-        <NavBar.Brand as={Link} to="/">
-          Osawii Yoga
-        </NavBar.Brand>
-        <Nav>
-          <Nav.Link as={Link} to="/" className="text-dark">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/cart" className="text-dark">
-            Cart
-          </Nav.Link>
-        </Nav>
+        <Navbar.Brand as={Link} to="/" className="me-auto">
+          <h2>Osawii Yoga</h2>
+        </Navbar.Brand>
       </Container>
-    </NavBar>
+      <Navbar.Toggle />
+      <Nav className="me-auto">
+        <Nav.Link as={Link} to="/" className="h3 text-dark">
+          Home
+        </Nav.Link>
+        <Nav.Link as={Link} to="/cart" className="h3 text-dark">
+          Cart
+        </Nav.Link>
+        <Nav.Link as={Link} to="/cart" className="h3 text-dark">
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </Nav.Link>
+      </Nav>
+    </Navbar>
   );
 };
 
