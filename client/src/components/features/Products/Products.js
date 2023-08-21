@@ -1,5 +1,4 @@
 import React from 'react';
-import Product from '../../views/Product/Product/Product';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +9,11 @@ const Products = ({ products }) => {
         {products.map((product) => (
           <Col key={product.id} className="mt-4" xs="12" md="6" lg="4">
             <Card>
+              <Card.Img
+                variant="top"
+                src={`${process.env.PUBLIC_URL}/images/${product.imageSource}`}
+                alt={product.name}
+              />
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>

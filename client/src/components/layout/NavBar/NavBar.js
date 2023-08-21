@@ -12,7 +12,7 @@ const CustomNavBar = () => {
       expand="sm"
       className="d-flex justify-content-between"
     >
-      <Navbar.Brand as={Link} to="/" className="">
+      <Navbar.Brand as={Link} to="/" className="m-2">
         <h2>Osawii Yoga</h2>
       </Navbar.Brand>
       <Navbar.Toggle />
@@ -22,7 +22,7 @@ const CustomNavBar = () => {
             Home
           </Nav.Link>
           <Nav.Link as={Link} to="/cart" className="h3 text-dark">
-            Cart
+            Koszyk
           </Nav.Link>
           <Nav.Link as={Link} to="/cart" className="h3 text-dark">
             <FontAwesomeIcon icon={faShoppingCart} />

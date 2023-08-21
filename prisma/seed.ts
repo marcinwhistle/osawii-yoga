@@ -9,6 +9,7 @@ function getProducts() {
       price: 99,
       description:
         'Zacznij swoją przygodę z jogą od podstaw. Poznaj techniki oddechu, asany i medytację.',
+      imageSource: '1.jpg',
     },
     {
       id: '4b2db7a8-00e7-4099-959d-30d846c9de08',
@@ -16,6 +17,7 @@ function getProducts() {
       price: 129,
       description:
         'Wypróbuj wyzwanie dla swojego ciała i umysłu. Zwiększ siłę, gibkość i kondycję w intensywnych sesjach.',
+      imageSource: '2.jpg',
     },
     {
       id: '105224b7-9f2f-4a22-9e5f-fd4cd831af9e',
@@ -23,6 +25,7 @@ function getProducts() {
       price: 79,
       description:
         'Zrelaksuj się i zregeneruj w spokojnych i terapeutycznych praktykach jogi, które pomogą w redukcji stresu.',
+      imageSource: '3.jpg',
     },
     {
       id: '105224b7-9f2f-4a22-9e5f-fd4cd831ag6y',
@@ -30,6 +33,7 @@ function getProducts() {
       price: 149,
       description:
         'Dla doświadczonych praktyków, którzy chcą zgłębić swoje umiejętności w trudniejszych asanach i technikach.',
+      imageSource: '4.jpg',
     },
   ];
 }
