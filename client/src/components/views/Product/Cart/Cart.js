@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAll } from '../../../../redux/cartRedux';
+import { updateProduct } from '../../../../redux/cartRedux';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
+
   const cartProducts = useSelector(getAll);
 
   const calculateCartTotal = (cartProducts) => {
@@ -13,6 +15,10 @@ const Cart = () => {
       subTotal += cartProducts[i].price * cartProducts[i].quantity;
     }
     return subTotal;
+  };
+
+  const handleQuantityChange = (productId, newQuantity) => {
+    dispatch(updateProduct({ id: productId, quantity: newQuantity }));
   };
 
   useEffect(() => {
@@ -27,7 +33,17 @@ const Cart = () => {
         <div key={product.id}>
           <p>{product.name}</p>
           <p>{product.price}</p>
-          <p>Ilość: {product.quantity}</p>
+          <p>
+            Ilość:
+            <input
+              type="number"
+              min="1"
+              value={product.quantity}
+              onChange={(e) =>
+                handleQuantityChange(product.id, parseInt(e.target.value))
+              }
+            />
+          </p>
         </div>
       ))}
       <h2>Wartośc koszyka: {totalPrice}</h2>
