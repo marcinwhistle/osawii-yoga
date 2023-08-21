@@ -10,8 +10,7 @@ const Products = ({ products }) => {
           <Col key={product.id} className="mt-4 d-flex" xl="6">
             <Card>
               <Card.Img
-                variant="top"
-                src={`${process.env.PUBLIC_URL}/images/${product.imageSource}`}
+                src={`${process.env.PUBLIC_URL}/images/${product.image}`}
                 alt={product.name}
               />
               <Card.Body className="d-flex flex-column justify-content-between">
@@ -19,10 +18,6 @@ const Products = ({ products }) => {
                 <Card.Text>
                   <strong>Cena: </strong>
                   {product.price}
-                </Card.Text>
-                <Card.Text>
-                  <strong>Opis: </strong>
-                  {product.description}
                 </Card.Text>
                 <div className="mt-auto">
                   <Button
