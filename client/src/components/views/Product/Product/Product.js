@@ -17,7 +17,15 @@ const Product = () => {
   const handleAddToCartClick = (e) => {
     e.preventDefault();
     const { id, name, price, description } = productData;
-    dispatch(addProduct({ id, name, price, description }));
+    dispatch(
+      addProduct({
+        id,
+        name,
+        price,
+        description,
+        quantity: parseInt(quantity),
+      }),
+    );
   };
 
   if (!productData) return <Navigate to="/" />;
@@ -50,7 +58,7 @@ const Product = () => {
               type="number"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(parseInt(e.target.value))}
+              onChange={(e) => setQuantity(e.target.value)}
             />
           </Col>
         </Row>

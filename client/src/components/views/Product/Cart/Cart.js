@@ -14,7 +14,7 @@ const Cart = () => {
           <p>{product.name}</p>
           <p>{product.price}</p>
           <p>{product.description}</p>
-          <p>Amount: {product.amount}</p>
+          <p>Amount: {product.quantity}</p>
         </div>
       ))}
     </>

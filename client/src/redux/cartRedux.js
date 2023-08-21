@@ -33,7 +33,7 @@ export default function reducer(statePart = initialState, action = {}) {
           ...statePart,
           products: statePart.products.map((product) =>
             product.id === action.payload.id
-              ? { ...product, amount: product.amount + 1 }
+              ? { ...product, quantity: product.quantity + 1 }
               : product,
           ),
         };
