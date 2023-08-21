@@ -21,6 +21,15 @@ const Cart = () => {
     dispatch(updateProduct({ id: productId, quantity: newQuantity }));
   };
 
+  const handleClientDescriptionChange = (productId, newClientDescription) => {
+    dispatch(
+      updateProduct({
+        id: productId,
+        clientDescription: newClientDescription,
+      }),
+    );
+  };
+
   useEffect(() => {
     const total = calculateCartTotal(cartProducts);
     setTotalPrice(total);
@@ -41,6 +50,17 @@ const Cart = () => {
               value={product.quantity}
               onChange={(e) =>
                 handleQuantityChange(product.id, parseInt(e.target.value))
+              }
+            />
+          </p>
+          <p>
+            Opis:
+            <input
+              type="text"
+              placeholder="Dodaj opis..."
+              value={product.clientDescription}
+              onChange={(e) =>
+                handleClientDescriptionChange(product.id, e.target.value)
               }
             />
           </p>
