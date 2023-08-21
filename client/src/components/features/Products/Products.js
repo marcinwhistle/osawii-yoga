@@ -7,30 +7,32 @@ const Products = ({ products }) => {
     <>
       <Row>
         {products.map((product) => (
-          <Col key={product.id} className="mt-4" xs="12" md="6" lg="4">
+          <Col key={product.id} className="mt-4 d-flex" xl="6">
             <Card>
               <Card.Img
                 variant="top"
                 src={`${process.env.PUBLIC_URL}/images/${product.imageSource}`}
                 alt={product.name}
               />
-              <Card.Body>
+              <Card.Body className="d-flex flex-column justify-content-between">
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
-                  <strong>Price: </strong>
+                  <strong>Cena: </strong>
                   {product.price}
                 </Card.Text>
                 <Card.Text>
-                  <strong>Description: </strong>
+                  <strong>Opis: </strong>
                   {product.description}
                 </Card.Text>
-                <Button
-                  variant="primary"
-                  as={Link}
-                  to={'/product/' + product.id}
-                >
-                  Read More
-                </Button>
+                <div className="mt-auto">
+                  <Button
+                    variant="primary"
+                    as={Link}
+                    to={'/product/' + product.id}
+                  >
+                    Dowiedz się więcej
+                  </Button>
+                </div>
               </Card.Body>
             </Card>
           </Col>

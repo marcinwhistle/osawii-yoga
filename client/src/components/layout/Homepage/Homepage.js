@@ -11,7 +11,7 @@ const Homepage = () => {
       <Container>
         <Row>
           <Col className="text-center mt-4 mb-4">
-            <h1>Odzyskaj swoją wewnętrzną równowagę:</h1>
+            <h1>Odzyskaj swoją wewnętrzną równowagę</h1>
           </Col>
         </Row>
         <ProductList />
