@@ -13,7 +13,7 @@ const CustomNavBar = () => {
       className="d-flex justify-content-between"
     >
       <Navbar.Brand as={Link} to="/" className="m-2">
-        <h2>Osawii Yoga</h2>
+        <h3>Osawii Yoga</h3>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse id="basic-navbar-nav">

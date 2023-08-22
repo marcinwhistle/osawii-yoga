@@ -1,12 +1,12 @@
 @import "../../../styles/settings.scss";
 
 .backgroundImage {
-    background-image: url('../../../../public/images/ola-188-683x1024.jpg'); // Replace with your image path
+    background-image: url('../../../../public/images/Ola.plener-37.jpg'); // Replace with your image path
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 95vh; // Ensures the image covers the entire viewport height
-    color: white; // Set text color to be visible against the background
+    min-height: 60vh;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
