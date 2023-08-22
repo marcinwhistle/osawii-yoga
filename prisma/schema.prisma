@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Product {
-  id               String @id @default(uuid())
-  name             String
-  price            Int
-  description      String
-  image            String
-  additionalImages String
+  id                String @id @default(uuid())
+  name              String
+  price             Int
+  description       String
+  image             String
+  additionalImages  String
+  clientDescription String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

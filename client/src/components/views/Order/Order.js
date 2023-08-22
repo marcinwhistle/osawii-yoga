@@ -7,12 +7,14 @@ import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addOrder } from '../../../redux/ordersRedux';
 import { API_URL } from '../../../config';
+import { checkout } from '../../../redux/cartRedux';
 
 const Order = () => {
   const cartProducts = useSelector(getAll);
   const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const [orderSuccess, setOrderSuccess] = useState(false);
   const [client, setClient] = useState('');
   const [address, setAddress] = useState('');
   const calculateCartTotal = (cartProducts) => {
@@ -31,31 +33,33 @@ const Order = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const orderData = {
-      client,
-      address,
-      products: cartProducts,
-    };
-
     try {
-      const response = await fetch(API_URL + '/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(orderData),
-      });
+      for (const product of cartProducts) {
+        const orderData = {
+          client,
+          address,
+          productId: product.id,
+        };
 
-      if (response.ok) {
-        const newOrder = await response.json();
-        dispatch(addOrder(newOrder)); // Dispatch the new order to Redux store
-        // Handle success or navigate to a confirmation page
-      } else {
-        // Handle error
+        const response = await fetch(API_URL + '/orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(orderData),
+        });
+
+        if (response.ok) {
+          const newOrder = await response.json();
+          dispatch(addOrder(newOrder));
+          setOrderSuccess(true);
+        } else {
+        }
       }
     } catch (error) {
       console.error('Error saving order:', error);
     }
+    dispatch(checkout());
   };
 
   return (
@@ -70,6 +74,7 @@ const Order = () => {
         </div>
       ))}
       <p>Wartość koszyka: {totalPrice}</p>
+      {orderSuccess && <p>Order placed successfully!</p>}
       <h2>Dane kontaktowe:</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="client">

@@ -1,18 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/shared/services/prisma/prisma.service';
-import { Order } from '@prisma/client';
+import { PrismaService } from '../../src/shared/services/prisma/prisma.service';
+import { CreateOrderDTO } from './dto/create-order.dto';
 
 @Injectable()
 export class OrdersService {
   constructor(private prismaService: PrismaService) {}
-  public getAll(): Promise<Order[]> {
-    return this.prismaService.order.findMany();
-  }
-  public create(
-    orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
-  ): Promise<Order> {
+
+  async create(orderData: CreateOrderDTO): Promise<any> {
+    const { productId, client, address } = orderData;
+
     return this.prismaService.order.create({
-      data: orderData,
+      data: {
+        client,
+        address,
+        product: { connect: { id: productId } }, // Connect with the specified product
+      },
     });
   }
 }
