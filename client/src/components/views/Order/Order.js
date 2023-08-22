@@ -52,7 +52,6 @@ const Order = () => {
         if (response.ok) {
           const newOrder = await response.json();
           dispatch(addOrder(newOrder));
-          setOrderSuccess(true);
         } else {
         }
       }
@@ -60,45 +59,51 @@ const Order = () => {
       console.error('Error saving order:', error);
     }
     dispatch(checkout());
+    setOrderSuccess(true);
   };
 
   return (
     <>
-      <h1>Podsumowanie</h1>
-      {cartProducts.map((product) => (
-        <div key={product.id}>
-          <p>Nazwa: {product.name}</p>
-          <p>Cena: {product.price}</p>
-          <p>Ilość {product.quantity}</p>
-          <p>Dodatkowy opis: {product.clientDescription}</p>
-        </div>
-      ))}
-      <p>Wartość koszyka: {totalPrice}</p>
-      {orderSuccess && <p>Order placed successfully!</p>}
-      <h2>Dane kontaktowe:</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="client">
-          <Form.Label>Imię i nazwisko:</Form.Label>
-          <Form.Control
-            type="text"
-            value={client}
-            onChange={(e) => setClient(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="address">
-          <Form.Label>Adres dostawy:</Form.Label>
-          <Form.Control
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Złóż zamówienie
-        </Button>
-      </Form>
+      {!orderSuccess ? (
+        <>
+          <h1>Podsumowanie</h1>
+          {cartProducts.map((product) => (
+            <div key={product.id}>
+              <p>Nazwa: {product.name}</p>
+              <p>Cena: {product.price}</p>
+              <p>Ilość {product.quantity}</p>
+              <p>Dodatkowy opis: {product.clientDescription}</p>
+            </div>
+          ))}
+          <p>Wartość koszyka: {totalPrice}</p>
+          <h2>Dane kontaktowe:</h2>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="client">
+              <Form.Label>Imię i nazwisko:</Form.Label>
+              <Form.Control
+                type="text"
+                value={client}
+                onChange={(e) => setClient(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="address">
+              <Form.Label>Adres dostawy:</Form.Label>
+              <Form.Control
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Złóż zamówienie
+            </Button>
+          </Form>
+        </>
+      ) : (
+        <p>Order placed successfully!</p>
+      )}
     </>
   );
 };
