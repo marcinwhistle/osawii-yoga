@@ -17,4 +17,8 @@ export class OrdersService {
       },
     });
   }
+
+  async getAll(): Promise<any[]> {
+    return this.prismaService.order.findMany(); // Fetch all orders from the database
+  }
 }
