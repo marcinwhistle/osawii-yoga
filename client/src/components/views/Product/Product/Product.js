@@ -44,23 +44,25 @@ const Product = () => {
                 src={`${process.env.PUBLIC_URL}/images/${productData.image}`}
                 alt={productData.name}
               />
-              <h1>Cena: {productData.price}</h1>
+              <div className={styles.infoContainer}>
+                <p className={styles.price}>Cena: {productData.price}</p>
+                <Button variant="primary" onClick={handleAddToCartClick}>
+                  Add to cart
+                </Button>
+                <input
+                  className={styles.input}
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </div>
               <p>{productData.description}</p>
             </div>
           </Col>
         </Row>
         <Row>
-          <Col className="d-flex justify-content-center align-items-center">
-            <Button variant="primary" onClick={handleAddToCartClick}>
-              Add to cart
-            </Button>
-            <input
-              type="number"
-              min="1"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-          </Col>
+          <Col className="d-flex justify-content-center align-items-center"></Col>
         </Row>
       </Container>
       <Container>

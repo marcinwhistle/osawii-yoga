@@ -7,3 +7,19 @@
     width: 300px;
     height: auto;
 }
+
+.infoContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price {
+    margin-right: 10px;;
+}
+
+.input {
+    width: 50px;
+    margin-left: 10px;
+    text-align: center;
+}
