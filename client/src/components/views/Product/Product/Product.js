@@ -35,17 +35,19 @@ const Product = () => {
   return (
     <>
       <Container>
+        <h1 className={styles.title}>{productData.name}</h1>
         <Row>
-          <Col className="d-flex justify-content-center">
+          <Col className="d-flex ">
             <div>
-              <h1>{productData.name}</h1>
               <img
                 className={styles['product-image']}
                 src={`${process.env.PUBLIC_URL}/images/${productData.image}`}
                 alt={productData.name}
               />
               <div className={styles.infoContainer}>
-                <p className={styles.price}>Cena: {productData.price}</p>
+                <p className={styles.price}>
+                  <strong>Cena: </strong> {productData.price}
+                </p>
                 <Button variant="primary" onClick={handleAddToCartClick}>
                   Add to cart
                 </Button>
@@ -57,18 +59,13 @@ const Product = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <p>{productData.description}</p>
             </div>
+            <p className={styles.description}>{productData.description}</p>
           </Col>
         </Row>
         <Row>
-          <Col className="d-flex justify-content-center align-items-center"></Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row>
           {additionalImages.map((image, index) => (
-            <Col key={index} className="mt-4 d-flex justify-content-center">
+            <Col key={index} className=" d-flex">
               <img
                 className={styles['additional-product-image']}
                 src={`${process.env.PUBLIC_URL}/images/${image}`}

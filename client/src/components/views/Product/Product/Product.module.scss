@@ -10,16 +10,26 @@
 
 .infoContainer {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-top: 10px;
 }
 
 .price {
-    margin-right: 10px;;
+    margin-right: 10px;
+    font-size: 24px;
 }
 
 .input {
     width: 50px;
     margin-left: 10px;
     text-align: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.description {
+
 }
