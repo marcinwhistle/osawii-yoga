@@ -1,27 +1,51 @@
+.title {
+    margin-left: 10px;
+}
+
 .productRow {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 10px;
 }
 
 .productName {
-  flex: 1;
-  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 24px;
 }
 
 .productPrice {
-  margin-right: 10px;
-}
-
-.productDetails {
-  display: flex;
-  align-items: center;
+  margin-left: 10px;
+  font-size: 16px;
 }
 
 .quantityLabel {
-  margin-right: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.quantityInput {
+    margin-left: 10px;
+    font-size: 16px;
 }
 
 .descriptionLabel {
-  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.descriptionInput {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.removeButton {
+    margin-left: 10px;
+}
+
+.cartValue {
+    margin-left: 10px;
+}
+
+.summaryButton {
+    margin-left: 10px;
 }

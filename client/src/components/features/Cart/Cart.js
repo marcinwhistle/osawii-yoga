@@ -6,7 +6,7 @@ import { removeProduct } from '../../../redux/cartRedux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import styles from './Cart.module.scss';
 
 const Cart = () => {
@@ -47,41 +47,59 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Podsumowanie koszyka</h1>
+      <Container>
+        <div className="root">
+          <h1 className={styles.title}>Podsumowanie koszyka</h1>
 
-      {cartProducts.map((product) => (
-        <div key={product.id} className={styles.productRow}>
-          <p className={styles.productName}>{product.name}</p>
-          <p className={styles.productPrice}>{product.price}</p>
-          <div className={styles.productDetails}>
-            <p className={styles.quantityLabel}>Ilość:</p>
-            <input
-              type="number"
-              min="1"
-              value={product.quantity}
-              onChange={(e) =>
-                handleQuantityChange(product.id, parseInt(e.target.value))
-              }
-            />
-            <p className={styles.descriptionLabel}>Opis:</p>
-            <input
-              type="text"
-              placeholder="Dodaj opis..."
-              value={product.clientDescription}
-              onChange={(e) =>
-                handleClientDescriptionChange(product.id, e.target.value)
-              }
-            />
-            <button onClick={() => handleRemoveProduct(product.id)}>
-              Usuń z koszyka <FontAwesomeIcon icon={faTimes} />
-            </button>
-          </div>
+          {cartProducts.map((product) => (
+            <div key={product.id} className={styles.productRow}>
+              <p className={styles.productName}>{product.name}</p>
+              <p className={styles.productPrice}>
+                <strong>Cena:</strong> {product.price}
+              </p>
+
+              <p>
+                <span className={styles.quantityLabel}>Ilość:</span>
+                <input
+                  className={styles.quantityInput}
+                  type="number"
+                  min="1"
+                  value={product.quantity}
+                  onChange={(e) =>
+                    handleQuantityChange(product.id, parseInt(e.target.value))
+                  }
+                />
+              </p>
+              <p>
+                <span className={styles.descriptionLabel}>Opis:</span>
+                <input
+                  className={styles.descriptionInput}
+                  type="text"
+                  placeholder="Dodaj opis..."
+                  value={product.clientDescription}
+                  onChange={(e) =>
+                    handleClientDescriptionChange(product.id, e.target.value)
+                  }
+                />
+              </p>
+              <p>
+                <button
+                  className={styles.removeButton}
+                  onClick={() => handleRemoveProduct(product.id)}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
+              </p>
+            </div>
+          ))}
+          <h2 className={styles.cartValue}>Wartośc koszyka: {totalPrice}</h2>
+          <Link to="/order">
+            <Button className={styles.summaryButton} variant="primary">
+              Przejdź do podsumowania
+            </Button>
+          </Link>
         </div>
-      ))}
-      <h2>Wartośc koszyka: {totalPrice}</h2>
-      <Link to="/order">
-        <Button variant="primary">Przejdź do podsumowania</Button>
-      </Link>
+      </Container>
     </>
   );
 };
