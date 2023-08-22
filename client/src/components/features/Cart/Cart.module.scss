@@ -1,0 +1,27 @@
+.productRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.productName {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.productPrice {
+  margin-right: 10px;
+}
+
+.productDetails {
+  display: flex;
+  align-items: center;
+}
+
+.quantityLabel {
+  margin-right: 10px;
+}
+
+.descriptionLabel {
+  margin-right: 10px;
+}

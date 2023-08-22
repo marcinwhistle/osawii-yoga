@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import styles from './Cart.module.scss';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -47,12 +48,13 @@ const Cart = () => {
   return (
     <>
       <h1>Podsumowanie koszyka</h1>
+
       {cartProducts.map((product) => (
-        <div key={product.id}>
-          <p>{product.name}</p>
-          <p>{product.price}</p>
-          <p>
-            Ilość:
+        <div key={product.id} className={styles.productRow}>
+          <p className={styles.productName}>{product.name}</p>
+          <p className={styles.productPrice}>{product.price}</p>
+          <div className={styles.productDetails}>
+            <p className={styles.quantityLabel}>Ilość:</p>
             <input
               type="number"
               min="1"
@@ -61,9 +63,7 @@ const Cart = () => {
                 handleQuantityChange(product.id, parseInt(e.target.value))
               }
             />
-          </p>
-          <p>
-            Opis:
+            <p className={styles.descriptionLabel}>Opis:</p>
             <input
               type="text"
               placeholder="Dodaj opis..."
@@ -72,10 +72,10 @@ const Cart = () => {
                 handleClientDescriptionChange(product.id, e.target.value)
               }
             />
-          </p>
-          <button onClick={() => handleRemoveProduct(product.id)}>
-            Usuń z koszyka <FontAwesomeIcon icon={faTimes} />
-          </button>
+            <button onClick={() => handleRemoveProduct(product.id)}>
+              Usuń z koszyka <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
         </div>
       ))}
       <h2>Wartośc koszyka: {totalPrice}</h2>
