@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAll } from '../../../../redux/cartRedux';
 import { updateProduct } from '../../../../redux/cartRedux';
+import { removeProduct } from '../../../../redux/cartRedux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -28,6 +31,10 @@ const Cart = () => {
         clientDescription: newClientDescription,
       }),
     );
+  };
+
+  const handleRemoveProduct = (productId) => {
+    dispatch(removeProduct(productId));
   };
 
   useEffect(() => {
@@ -64,6 +71,9 @@ const Cart = () => {
               }
             />
           </p>
+          <button onClick={() => handleRemoveProduct(product.id)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       ))}
       <h2>Wartośc koszyka: {totalPrice}</h2>
