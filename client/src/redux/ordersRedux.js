@@ -1,5 +1,3 @@
-import { API_URL } from '../config';
-
 //selectors
 
 // action name creator

@@ -5,7 +5,7 @@ import initialState from './initial State';
 //import reducers
 import productsReducer from './productsRedux';
 import cartReducer from './cartRedux';
-import ordersReducer from './orderRedux';
+import ordersReducer from './ordersRedux';
 
 const subreducers = {
   products: productsReducer,

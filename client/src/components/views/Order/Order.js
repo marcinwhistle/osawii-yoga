@@ -4,9 +4,13 @@ import { getAll } from '../../../redux/cartRedux';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { addOrder } from '../../../redux/ordersRedux';
+import { API_URL } from '../../../config';
 
 const Order = () => {
   const cartProducts = useSelector(getAll);
+  const dispatch = useDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
 
   const [client, setClient] = useState('');
@@ -24,6 +28,36 @@ const Order = () => {
     setTotalPrice(total);
   }, [cartProducts]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const orderData = {
+      client,
+      address,
+      products: cartProducts,
+    };
+
+    try {
+      const response = await fetch(API_URL + '/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (response.ok) {
+        const newOrder = await response.json();
+        dispatch(addOrder(newOrder)); // Dispatch the new order to Redux store
+        // Handle success or navigate to a confirmation page
+      } else {
+        // Handle error
+      }
+    } catch (error) {
+      console.error('Error saving order:', error);
+    }
+  };
+
   return (
     <>
       <h1>Podsumowanie</h1>
@@ -37,7 +71,7 @@ const Order = () => {
       ))}
       <p>Wartość koszyka: {totalPrice}</p>
       <h2>Dane kontaktowe:</h2>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group controlId="client">
           <Form.Label>Imię i nazwisko:</Form.Label>
           <Form.Control
