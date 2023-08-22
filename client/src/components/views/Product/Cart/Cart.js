@@ -5,6 +5,8 @@ import { updateProduct } from '../../../../redux/cartRedux';
 import { removeProduct } from '../../../../redux/cartRedux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -72,11 +74,14 @@ const Cart = () => {
             />
           </p>
           <button onClick={() => handleRemoveProduct(product.id)}>
-            <FontAwesomeIcon icon={faTimes} />
+            Usuń z koszyka <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
       ))}
       <h2>Wartośc koszyka: {totalPrice}</h2>
+      <Link to="/order">
+        <Button variant="primary">Przejdź do podsumowania</Button>
+      </Link>
     </>
   );
 };
