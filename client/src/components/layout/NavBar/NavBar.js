@@ -7,8 +7,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const CustomNavBar = () => {
   return (
     <Navbar
-      bg="light"
-      variant="light"
+      bg="dark"
+      variant="dark"
       expand="sm"
       className="d-flex justify-content-between"
     >
@@ -18,13 +18,13 @@ const CustomNavBar = () => {
       <Navbar.Toggle />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="">
-          <Nav.Link as={Link} to="/" className="h3 text-dark">
+          <Nav.Link as={Link} to="/" className="h3 text-light">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} to="/cart" className="h3 text-dark">
+          <Nav.Link as={Link} to="/cart" className="h3 text-light">
             Koszyk
           </Nav.Link>
-          <Nav.Link as={Link} to="/cart" className="h3 text-dark">
+          <Nav.Link as={Link} to="/cart" className="h3 text-light">
             <FontAwesomeIcon icon={faShoppingCart} />
           </Nav.Link>
         </Nav>

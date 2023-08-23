@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Products from '../../features/Products/Products';
 import { fetchProducts } from '../../../redux/productsRedux';
 import { getAllProducts } from '../../../redux/productsRedux';
+import styles from './ProductList.module.scss';
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,9 @@ const ProductList = () => {
   const products = useSelector(getAllProducts);
 
   return (
-    <>
+    <div className={styles.productListContainer}>
       <Products products={products} />
-    </>
+    </div>
   );
 };
 
