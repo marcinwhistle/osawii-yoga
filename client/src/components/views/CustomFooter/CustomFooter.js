@@ -59,6 +59,9 @@ const CustomFooter = () => {
               <div className={styles['social-links']}>
                 <a href="#">
                   <i className="fab fa-facebook"></i>
+                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-instagram"></i>
+                  <i className="fab fa-linkedin"></i>
                 </a>
               </div>
             </div>

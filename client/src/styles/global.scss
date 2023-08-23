@@ -1,1 +1,10 @@
-@import '~@fortawesome/fontawesome-free/css/all.css'; // Adjust the path as needed
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+@import './settings.scss';
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
