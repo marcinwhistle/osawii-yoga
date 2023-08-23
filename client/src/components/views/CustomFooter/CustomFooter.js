@@ -7,8 +7,8 @@ const CustomFooter = () => {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles['footer-col']}>
-              <h4>O nas</h4>
               <ul>
+                <h4>O nas</h4>
                 <li>
                   <a href="#">Szkoła jogi</a>
                 </li>
@@ -24,8 +24,8 @@ const CustomFooter = () => {
               </ul>
             </div>
             <div className={styles['footer-col']}>
-              <h4>Pomoc</h4>
               <ul>
+                <h4>Pomoc</h4>
                 <li>
                   <a href="#">FAQ</a>
                 </li>
@@ -41,8 +41,8 @@ const CustomFooter = () => {
               </ul>
             </div>
             <div className={styles['footer-col']}>
-              <h4>Sklep online</h4>
               <ul>
+                <h4>Sklep online</h4>
                 <li>
                   <a href="#">Kursy</a>
                 </li>
@@ -55,8 +55,8 @@ const CustomFooter = () => {
               </ul>
             </div>
             <div className={styles['footer-col']}>
-              <h4>Śledź nas</h4>
-              <div className={styles['social-links']}>
+              <ul className={styles['social-links']}>
+                <h4>Śledź nas</h4>
                 <a href="#">
                   <i className="fab fa-facebook"></i>
                 </a>
@@ -69,7 +69,7 @@ const CustomFooter = () => {
                 <a href="#">
                   <i className="fab fa-linkedin"></i>
                 </a>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
