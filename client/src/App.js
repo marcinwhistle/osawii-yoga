@@ -10,6 +10,7 @@ import NotFound from './components/views/Not Found/NotFound';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+import './styles/bootstrap.scss';
 import './styles/global.scss';
 
 const App = () => (
