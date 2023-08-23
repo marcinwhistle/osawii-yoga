@@ -49,7 +49,7 @@ const Cart = () => {
     <>
       <Container>
         <div className="root">
-          <h1 className={styles.title}>Podsumowanie koszyka</h1>
+          <p className={styles.title}>Podsumowanie koszyka</p>
 
           {cartProducts.map((product) => (
             <div key={product.id} className={styles.productRow}>
@@ -92,7 +92,7 @@ const Cart = () => {
               </p>
             </div>
           ))}
-          <h2 className={styles.cartValue}>Wartośc koszyka: {totalPrice}</h2>
+          <p className={styles.cartValue}>Wartośc koszyka: {totalPrice}</p>
           <Link to="/order">
             <Button className={styles.summaryButton} variant="primary">
               Przejdź do podsumowania

@@ -1,0 +1,41 @@
+.title {
+    font-size: 20px;
+}
+
+.productRow {
+    display: flex;
+    align-items: baseline;
+}
+
+.productName {
+font-size: 20px;
+}
+
+.productPrice {
+font-size: 16px;
+margin-left: 10px;
+}
+
+.productQuantity {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.contactTitle {
+    font-size: 20px;
+}
+
+.inputClient {
+    width: 300px;;
+}
+
+.inputAddress {
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.orderConfirmation {
+    margin-top: 30px;
+text-align: center;
+font-size: 24px;
+}

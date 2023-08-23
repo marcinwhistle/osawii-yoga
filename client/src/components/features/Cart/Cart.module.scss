@@ -1,5 +1,6 @@
 .title {
     margin-left: 10px;
+    font-size: 24px;
 }
 
 .productRow {
@@ -10,7 +11,7 @@
 
 .productName {
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .productPrice {
@@ -26,6 +27,8 @@
 .quantityInput {
     margin-left: 10px;
     font-size: 16px;
+    width: 40px;
+    text-align: center;
 }
 
 .descriptionLabel {
@@ -44,6 +47,7 @@
 
 .cartValue {
     margin-left: 10px;
+    font-size: 20px;
 }
 
 .summaryButton {

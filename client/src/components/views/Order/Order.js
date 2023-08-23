@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { getAll } from '../../../redux/cartRedux';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addOrder } from '../../../redux/ordersRedux';
 import { API_URL } from '../../../config';
 import { checkout } from '../../../redux/cartRedux';
+import styles from './Order.module.scss';
 
 const Order = () => {
   const cartProducts = useSelector(getAll);
@@ -65,44 +66,52 @@ const Order = () => {
   return (
     <>
       {!orderSuccess ? (
-        <>
-          <h1>Podsumowanie</h1>
-          {cartProducts.map((product) => (
-            <div key={product.id}>
-              <p>Nazwa: {product.name}</p>
-              <p>Cena: {product.price}</p>
-              <p>Ilość {product.quantity}</p>
-              <p>Dodatkowy opis: {product.clientDescription}</p>
-            </div>
-          ))}
-          <p>Wartość koszyka: {totalPrice}</p>
-          <h2>Dane kontaktowe:</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="client">
-              <Form.Label>Imię i nazwisko:</Form.Label>
-              <Form.Control
-                type="text"
-                value={client}
-                onChange={(e) => setClient(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group controlId="address">
-              <Form.Label>Adres dostawy:</Form.Label>
-              <Form.Control
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Złóż zamówienie
-            </Button>
-          </Form>
-        </>
+        <Container>
+          <>
+            <p className={styles.title}>Podsumowanie</p>
+            {cartProducts.map((product) => (
+              <div key={product.id} className={styles.productRow}>
+                <p className={styles.productName}> {product.name}</p>
+                <p className={styles.productPrice}>Cena: {product.price}</p>
+                <p className={styles.productQuantity}>
+                  Ilość {product.quantity}
+                </p>
+                <p>{product.clientDescription}</p>
+              </div>
+            ))}
+            <p className={styles.cartSummary}>Wartość koszyka: {totalPrice}</p>
+            <p className={styles.contactTitle}>Dane kontaktowe:</p>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="client">
+                <Form.Label>Imię i nazwisko:</Form.Label>
+                <Form.Control
+                  className={styles.inputClient}
+                  type="text"
+                  value={client}
+                  onChange={(e) => setClient(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="address">
+                <Form.Label>Adres dostawy:</Form.Label>
+                <Form.Control
+                  className={styles.inputAddress}
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Złóż zamówienie
+              </Button>
+            </Form>
+          </>
+        </Container>
       ) : (
-        <p>Order placed successfully!</p>
+        <Container>
+          <p className={styles.orderConfirmation}>Dziękujemy za zamówienie!</p>
+        </Container>
       )}
     </>
   );
