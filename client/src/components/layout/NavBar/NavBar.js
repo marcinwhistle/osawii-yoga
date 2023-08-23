@@ -13,18 +13,18 @@ const CustomNavBar = () => {
       className="d-flex justify-content-between"
     >
       <Navbar.Brand as={Link} to="/" className="m-2">
-        <h3>Osawii Yoga</h3>
+        <h4>Osawii Yoga</h4>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="">
-          <Nav.Link as={Link} to="/" className="h3 text-light">
+          <Nav.Link as={Link} to="/" className="h4 text-light">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} to="/cart" className="h3 text-light">
+          <Nav.Link as={Link} to="/cart" className="h4 text-light">
             Koszyk
           </Nav.Link>
-          <Nav.Link as={Link} to="/cart" className="h3 text-light">
+          <Nav.Link as={Link} to="/cart" className="h4 text-light">
             <FontAwesomeIcon icon={faShoppingCart} />
           </Nav.Link>
         </Nav>
