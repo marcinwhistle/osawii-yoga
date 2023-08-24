@@ -9,6 +9,7 @@ import { addOrder } from '../../../redux/ordersRedux';
 import { API_URL } from '../../../config';
 import { checkout } from '../../../redux/cartRedux';
 import styles from './Order.module.scss';
+import PageBaner from '../PageBaner/PageBaner.js';
 
 const Order = () => {
   const cartProducts = useSelector(getAll);
@@ -68,19 +69,20 @@ const Order = () => {
       {!orderSuccess ? (
         <Container>
           <>
-            <p className={styles.title}>Podsumowanie</p>
-            {cartProducts.map((product) => (
-              <div key={product.id} className={styles.productRow}>
-                <p className={styles.productName}> {product.name}</p>
-                <p className={styles.productPrice}>Cena: {product.price}</p>
-                <p className={styles.productQuantity}>
-                  Ilość {product.quantity}
-                </p>
-                <p>{product.clientDescription}</p>
-              </div>
-            ))}
-            <p className={styles.cartSummary}>Wartość koszyka: {totalPrice}</p>
-            <p className={styles.contactTitle}>Dane kontaktowe:</p>
+            <PageBaner text="Podsumowanie" />
+            <div className={styles.centeringContainer}>
+              {cartProducts.map((product) => (
+                <div key={product.id} className={styles.productRow}>
+                  <p className={styles.productName}> {product.name}</p>
+                  <p className={styles.productPrice}>Cena: {product.price}</p>
+                  <p className={styles.productQuantity}></p>
+                  <p>Ilość {product.quantity}</p>
+                  <p>{product.clientDescription}</p>
+                </div>
+              ))}
+            </div>
+
+            <PageBaner text="Dane kontaktowe:" />
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="client">
                 <Form.Label>Imię i nazwisko:</Form.Label>
@@ -102,6 +104,9 @@ const Order = () => {
                   required
                 />
               </Form.Group>
+              <p className={styles.cartSummary}>
+                Wartość koszyka: {totalPrice}
+              </p>
               <Button variant="primary" type="submit">
                 Złóż zamówienie
               </Button>
