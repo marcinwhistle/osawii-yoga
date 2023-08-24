@@ -6,6 +6,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { addProduct } from '../../../../redux/cartRedux';
 import styles from './Product.module.scss';
+import PageBaner from '../../PageBaner/PageBaner';
 
 const Product = () => {
   const { id } = useParams();
@@ -35,9 +36,9 @@ const Product = () => {
   return (
     <>
       <Container>
-        <h1 className={styles.title}>{productData.name}</h1>
+        <PageBaner text={productData.name} />
         <Row>
-          <Col className="d-flex ">
+          <Col className="d-flex">
             <div>
               <img
                 className={styles['product-image']}
@@ -45,27 +46,29 @@ const Product = () => {
                 alt={productData.name}
               />
             </div>
-            <p className={styles.description}>{productData.description}</p>
+            <div className={styles.infoContainer}>
+              <p className={styles.description}>{productData.description}</p>
+              <div className={styles.priceContainer}>
+                <p className={styles.price}>
+                  <strong>Cena: </strong> {productData.price}
+                </p>
+                <Button variant="primary" onClick={handleAddToCartClick}>
+                  Add to cart
+                </Button>
+                <input
+                  className={styles.input}
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </div>
+            </div>
           </Col>
         </Row>
-        <div className={styles.infoContainer}>
-          <p className={styles.price}>
-            <strong>Cena: </strong> {productData.price}
-          </p>
-          <Button variant="primary" onClick={handleAddToCartClick}>
-            Add to cart
-          </Button>
-          <input
-            className={styles.input}
-            type="number"
-            min="1"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-        </div>
-        <Row>
+        <Row className={styles.gallery}>
           {additionalImages.map((image, index) => (
-            <Col key={index} className=" d-flex">
+            <Col key={index}>
               <img
                 className={styles['additional-product-image']}
                 src={`${process.env.PUBLIC_URL}/images/${image}`}

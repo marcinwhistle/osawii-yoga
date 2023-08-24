@@ -1,3 +1,9 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 .product-image {
     width: 400px;
     height: auto;
@@ -6,12 +12,19 @@
 .additional-product-image {
     width: 300px;
     height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+    justify-content: center;
+
 }
 
 .infoContainer {
-    display: flex;
-    align-items: baseline;
-    margin-top: 10px;
+    margin: auto;
 }
 
 .price {
@@ -31,8 +44,20 @@
 }
 
 .description {
-text-align: center;
+    text-align: center;
     margin: auto;
-    width: 40%;
-    font-size: 40px;
+    width: 60%;
+    font-size: 24px;
 }
+
+.gallery {
+    margin: 50px 0 ;
+}
+
+.product-image:hover {
+    transform: scale(1.1);
+  }
+
+  .additional-product-image:hover {
+    transform: scale(1.1);
+  }
