@@ -28,6 +28,7 @@
     "axios": "^1.4.0",
     "class-validator": "^0.14.0",
     "cors": "^2.8.5",
+    "nest": "^0.1.6",
     "node-sass": "^9.0.0",
     "redux-thunk": "^2.4.2",
     "reflect-metadata": "^0.1.13",
