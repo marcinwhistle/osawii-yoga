@@ -49,60 +49,56 @@ const Cart = () => {
   return (
     <>
       <Container>
-        <div className="root">
-          <PageBaner text="Podsumowanie koszyka" />
-          <div className={styles.centeringContainer}>
-            <div className={styles.productList}>
-              {cartProducts.map((product) => (
-                <div key={product.id} className={styles.productRow}>
-                  <p className={styles.productName}>{product.name}</p>
-                  <p className={styles.productPrice}>
-                    <strong>Cena:</strong> {product.price}
-                  </p>
+        <PageBaner text="Podsumowanie koszyka" />
+        <div className={styles.centeringContainer}>
+          <div className={styles.productList}>
+            {cartProducts.map((product) => (
+              <div key={product.id} className={styles.productRow}>
+                <p className={styles.productName}>{product.name}</p>
+                <p className={styles.productPrice}>
+                  <strong>Cena:</strong> {product.price}
+                </p>
 
-                  <p>
-                    <span className={styles.quantityLabel}>Ilość:</span>
-                    <input
-                      className={styles.quantityInput}
-                      type="number"
-                      min="1"
-                      value={product.quantity}
-                      onChange={(e) =>
-                        handleQuantityChange(
-                          product.id,
-                          parseInt(e.target.value),
-                        )
-                      }
-                    />
-                  </p>
-                  <p>
-                    <span className={styles.descriptionLabel}>Opis:</span>
-                    <input
-                      className={styles.descriptionInput}
-                      type="text"
-                      placeholder="Dodaj opis..."
-                      value={product.clientDescription}
-                      onChange={(e) =>
-                        handleClientDescriptionChange(
-                          product.id,
-                          e.target.value,
-                        )
-                      }
-                    />
-                  </p>
-                  <p>
-                    <button
-                      className={styles.removeButton}
-                      onClick={() => handleRemoveProduct(product.id)}
-                    >
-                      <FontAwesomeIcon icon={faTimes} />
-                    </button>
-                  </p>
-                </div>
-              ))}
-            </div>
+                <p>
+                  <span className={styles.quantityLabel}>Ilość:</span>
+                  <input
+                    className={styles.quantityInput}
+                    type="number"
+                    min="1"
+                    value={product.quantity}
+                    onChange={(e) =>
+                      handleQuantityChange(product.id, parseInt(e.target.value))
+                    }
+                  />
+                </p>
+                <p>
+                  <span className={styles.descriptionLabel}>Opis:</span>
+                  <input
+                    className={styles.descriptionInput}
+                    type="text"
+                    placeholder="Dodaj opis..."
+                    value={product.clientDescription}
+                    onChange={(e) =>
+                      handleClientDescriptionChange(product.id, e.target.value)
+                    }
+                  />
+                </p>
+                <p>
+                  <button
+                    className={styles.removeButton}
+                    onClick={() => handleRemoveProduct(product.id)}
+                  >
+                    <FontAwesomeIcon icon={faTimes} />
+                  </button>
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
+        <div className={styles.summaryContainer}>
           <p className={styles.cartValue}>Wartośc koszyka: {totalPrice}</p>
+        </div>
+        <div className={styles.buttonSummaryContainer}>
           <Link to="/order">
             <Button className={styles.summaryButton} variant="primary">
               Przejdź do podsumowania
