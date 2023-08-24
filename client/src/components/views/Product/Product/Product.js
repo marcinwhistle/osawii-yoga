@@ -38,7 +38,7 @@ const Product = () => {
       <Container>
         <PageBaner text={productData.name} />
         <Row>
-          <Col className="d-flex">
+          <Col className={`d-flex ${styles.productContainer}`}>
             <div>
               <img
                 className={styles['product-image']}
@@ -47,7 +47,6 @@ const Product = () => {
               />
             </div>
             <div className={styles.infoContainer}>
-              <p className={styles.description}>{productData.description}</p>
               <div className={styles.priceContainer}>
                 <p className={styles.price}>
                   <strong>Cena: </strong> {productData.price}
@@ -64,12 +63,13 @@ const Product = () => {
                 />
               </div>
             </div>
+            <p className={styles.description}>{productData.description}</p>
           </Col>
         </Row>
         <div className={styles.gallery}>
-          <Row>
+          <Row className="justify-content-center">
             {additionalImages.map((image, index) => (
-              <Col key={index}>
+              <Col key={index} className="text-center">
                 <img
                   className={styles['additional-product-image']}
                   src={`${process.env.PUBLIC_URL}/images/${image}`}

@@ -12,6 +12,7 @@
 .additional-product-image {
     width: 300px;
     height: auto;
+    margin: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -62,3 +63,8 @@
   .additional-product-image:hover {
     transform: scale(1.1);
   }
+
+  .productContainer {
+    flex-direction: column;
+    align-items: center;}
+
