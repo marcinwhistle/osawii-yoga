@@ -69,48 +69,52 @@ const Order = () => {
       {!orderSuccess ? (
         <Container>
           <>
-            <PageBaner text="Podsumowanie" />
-            <div className={styles.centeringContainer}>
-              {cartProducts.map((product) => (
-                <div key={product.id} className={styles.productRow}>
-                  <p className={styles.productName}> {product.name}</p>
-                  <p className={styles.productPrice}>Cena: {product.price}</p>
-                  <p className={styles.productQuantity}></p>
-                  <p>Ilość {product.quantity}</p>
-                  <p>{product.clientDescription}</p>
-                </div>
-              ))}
-            </div>
+            <PageBaner text="Podsumowanie koszyka:" />
+
+            {cartProducts.map((product) => (
+              <div key={product.id} className={styles.productRow}>
+                <p className={styles.productName}> {product.name}</p>
+                <p className={styles.productPrice}>Cena: {product.price}</p>
+                <p className={styles.productQuantity}></p>
+                <p>Ilość {product.quantity}</p>
+                <p>{product.clientDescription}</p>
+              </div>
+            ))}
+            <p className={styles.cartSummary}>Wartość koszyka: {totalPrice}</p>
 
             <PageBaner text="Dane kontaktowe:" />
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="client">
-                <Form.Label>Imię i nazwisko:</Form.Label>
-                <Form.Control
-                  className={styles.inputClient}
-                  type="text"
-                  value={client}
-                  onChange={(e) => setClient(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="address">
-                <Form.Label>Adres dostawy:</Form.Label>
-                <Form.Control
-                  className={styles.inputAddress}
-                  type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <p className={styles.cartSummary}>
-                Wartość koszyka: {totalPrice}
-              </p>
-              <Button variant="primary" type="submit">
-                Złóż zamówienie
-              </Button>
-            </Form>
+            <div className="text-center d-flex flex-column align-items-center">
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="client">
+                  <Form.Label>Imię i nazwisko:</Form.Label>
+                  <Form.Control
+                    className={styles.inputClient}
+                    type="text"
+                    value={client}
+                    onChange={(e) => setClient(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId="address">
+                  <Form.Label>Adres dostawy:</Form.Label>
+                  <Form.Control
+                    className={styles.inputAddress}
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Button
+                  className={styles.summaryButton}
+                  variant="primary"
+                  type="submit"
+                >
+                  Złóż zamówienie
+                </Button>
+              </Form>
+            </div>
           </>
         </Container>
       ) : (

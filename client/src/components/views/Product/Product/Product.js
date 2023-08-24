@@ -66,17 +66,19 @@ const Product = () => {
             </div>
           </Col>
         </Row>
-        <Row className={styles.gallery}>
-          {additionalImages.map((image, index) => (
-            <Col key={index}>
-              <img
-                className={styles['additional-product-image']}
-                src={`${process.env.PUBLIC_URL}/images/${image}`}
-                alt={`Additional ${index}`}
-              />
-            </Col>
-          ))}
-        </Row>
+        <div className={styles.gallery}>
+          <Row>
+            {additionalImages.map((image, index) => (
+              <Col key={index}>
+                <img
+                  className={styles['additional-product-image']}
+                  src={`${process.env.PUBLIC_URL}/images/${image}`}
+                  alt={`Additional ${index}`}
+                />
+              </Col>
+            ))}
+          </Row>
+        </div>
       </Container>
     </>
   );
